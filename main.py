@@ -4,6 +4,7 @@ import numpy as np
 import os
 import keras
 from keras.models import Model
+from keras.utils import multi_gpu_model
 from keras.layers import Input, Dense, Dropout, Activation
 from keras.layers import Conv2D, GlobalAveragePooling2D
 from keras.layers import BatchNormalization, Add
@@ -141,8 +142,14 @@ if __name__ == '__main__':
     train_files = ["./data/training/esc_melsp_train_raw.npz","./data/training/esc_melsp_train_ss.npz","./data/training/esc_melsp_train_st.npz", "./data/training/esc_melsp_train_wn.npz","./data/training/esc_melsp_train_com.npz"]
     test_file = "./data/training/esc_melsp_test.npz"
     x_train , x_test , y_train , y_test = get_train_test(train_files , test_file , freq , time ,train_num , test_num)
-
-    model = DefineCnn()
+    
+    # Using Multi GPUs
+    try :
+        _model = DefineCnn()
+        model= multi_gpu_model(_model)
+        print('Using Multi GPU')
+    except:
+        model = DefineCnn()
 
     
     # initiate Adam optimizer
@@ -150,6 +157,10 @@ if __name__ == '__main__':
 
     # Let's train the model using Adam with amsgrad
     model.compile(loss='categorical_crossentropy' , optimizer=opt , metrics=['accuracy'])
+
+
+
+    #Using MultiGPU
 
 
     # directory for model checkpoints
