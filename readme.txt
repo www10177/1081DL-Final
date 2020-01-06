@@ -8,7 +8,8 @@ use ESC-50 dataset (https://github.com/karolpiczak/ESC-50)
     b. shift sound in timeframe 
     c. stretch sound 
     d. combine the above method
-    and compute their mel-scaled spectrogram.
+    and calculate these audio recordings by Inverse short-time Fourier transform. Then calculate Mel-scaled spectrogram through the above results
+
 
 2. Define Keras CNN
     Activation function : relu , softmax
