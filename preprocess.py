@@ -16,10 +16,11 @@ def load_wave_data(audio_dir, file_name):
     x, fs = librosa.load(file_path, sr=44100)
     return x , fs
 
-def calculate_melsp(x, n_fft=1024, hop_length=128):
+def calculate_melsp(x , fs, n_fft=1024, hop_length=128):
     stft = np.abs(librosa.stft(x, n_fft=n_fft, hop_length=hop_length))**2
     log_stft = librosa.power_to_db(stft)
     melsp = librosa.feature.melspectrogram(S=log_stft,n_mels=128)
+    # melsp = librosa.feature.mfcc(S=log_stft, n_mfcc = 128)
     return melsp
 
 def add_white_noise(x, rate=0.002):
@@ -48,7 +49,7 @@ def save_np_data(filename, x, y, aug=None, rates=None):
         _x, fs = load_wave_data('./data/ESC-50-master/audio/', x[i])
         if aug is not None:
             _x = aug(x=_x, rate=rates[i])
-        _x = calculate_melsp(_x)
+        _x = calculate_melsp(_x , fs)
         np_data[i] = _x
         np_targets[i] = y[i]
     np.savez(filename, x=np_data, y=np_targets)
@@ -88,7 +89,7 @@ if __name__ == '__main__':
                 x = shift_sound(x=x, rate=np.random.choice(np.arange(2,6)))
             else:
                 x = stretch_sound(x=x, rate=np.random.choice(np.arange(80,120))/100)
-            x = calculate_melsp(x)
+            x = calculate_melsp(x , fs)
             np_data[i] = x
             np_targets[i] = y_train[i]
         np.savez("./data/training/esc_melsp_train_com.npz", x=np_data, y=np_targets)
