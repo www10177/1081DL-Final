@@ -17,3 +17,7 @@ use ESC-50 dataset (https://github.com/karolpiczak/ESC-50)
         optimatizer : Adam
 
 3. prediction and evaluation
+
+
+Others:
+	Create `data` folder and `./data/training` and put `ESC-50-master` inside data
