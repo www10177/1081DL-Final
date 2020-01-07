@@ -18,7 +18,13 @@ use ESC-50 dataset (https://github.com/karolpiczak/ESC-50)
 ## 3. prediction and evaluation
     model : CNN
 
+
 ## result
 name | our approach | Baseline - random forest | Baseline - SVM
 --- | --- | --- | --- |
 accuracy | 0.796 | 0.443 | 0.396
+
+
+
+Others:
+	Create `data` folder and `./data/training` and put `ESC-50-master` inside data
