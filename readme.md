@@ -20,9 +20,9 @@ use ESC-50 dataset (https://github.com/karolpiczak/ESC-50)
 
 
 ## result
-name | our approach | Baseline - random forest | Baseline - SVM
---- | --- | --- | --- |
-accuracy | 0.796 | 0.443 | 0.396
+name | Mel-spectrogram | mfcc | Baseline - random forest | Baseline - SVM
+--- | --- | --- | --- | --- |
+accuracy | 0.796 | 0.766 | 0.443 | 0.396
 
 
 
