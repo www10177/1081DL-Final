@@ -10,11 +10,7 @@ from keras.layers import BatchNormalization, Add
 from keras.callbacks import EarlyStopping, ModelCheckpoint
 from keras.models import load_model
 
-def cba(inputs, filters, kernel_size, strides):
-    x = Conv2D(filters, kernel_size=kernel_size, strides=strides, padding='same')(inputs)
-    x = BatchNormalization()(x)
-    x = Activation("relu")(x)
-    return x
+
 
 def get_train_test(train_files , test_file, freq , time , train_num , test_num):
     x_train = np.zeros(freq*time*train_num*len(train_files)).reshape(train_num*len(train_files), freq, time)
@@ -47,6 +43,12 @@ def get_train_test(train_files , test_file, freq , time , train_num , test_num):
                                                                 y_test.shape))
 
     return x_train , x_test , y_train , y_test
+
+def cba(inputs, filters, kernel_size, strides):
+    x = Conv2D(filters, kernel_size = kernel_size, strides=strides, padding='same')(inputs)
+    x = BatchNormalization()(x)
+    x = Activation("relu")(x)
+    return x
 
 def DefineCnn():
     classes = 50
@@ -84,7 +86,7 @@ def DefineCnn():
 
     model = Model(inputs, x)
 
-
+    print(model.summary())
     return model
 
 # between class data generator
@@ -160,17 +162,17 @@ if __name__ == '__main__':
     # early stopping and model checkpoint# early  
     es_cb = EarlyStopping(monitor='val_loss', patience=10, verbose=1, mode='auto')
     chkpt = os.path.join(model_dir, 'esc50_.{epoch:02d}_{val_loss:.4f}_{val_acc:.4f}.hdf5')
-    cp_cb = ModelCheckpoint(filepath = chkpt, monitor='val_loss', verbose=1, save_best_only=True, mode='auto')
+    cp_cb = ModelCheckpoint(filepath = chkpt, monitor='val_loss', verbose = 1, save_best_only=True, mode='auto')
 
 
     # train model
     batch_size = 16
-    epochs = 1000
+    epochs = 100
 
     training_generator = MixupGenerator(x_train, y_train)()
     model.fit_generator(generator = training_generator, steps_per_epoch = x_train.shape[0] // batch_size, validation_data = (x_test, y_test), epochs = epochs, verbose = 1, shuffle = True , callbacks = [es_cb, cp_cb])
 
         
-    model = load_model("./models/esc50_.105_0.8096_0.8200.hdf5")
+    model = load_model("./models/esc50_.91_0.9135_0.7960.hdf5")
     evaluation = model.evaluate(x_test, y_test)
     print(evaluation)
