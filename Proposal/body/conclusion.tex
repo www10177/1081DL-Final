@@ -1,0 +1,7 @@
+In this study, we proposed a CNN model to classify environmental sound. We use ECS-50 dataset with 2000 sample. 
+To augment data, we used three methods : White Noise, Sound Shift and Stretching Sound. 
+Though CNN accepted image as input, we converted waveform to Mel-spectrogram and MFCCs, both is widely used as feature in audio domain. 
+We also built two classifier without data augmentation to compare our works. 
+The results showed that using CNN with Mel-spectrogram as feature is superior than baseline, even using MFCCs as feature improve accuracy a lot. 
+
+In the future, we will try more methods to augment data and tuning the architecture of CNN. In this work, we only performed simply augmentation and CNN, there are still lots of improvement we can do. Besides data augmentation, we also want to deploy our model on several IOT device, i.e., Raspberry Pi, which can help us monitor city event at the first time. We thought that would improve our city security and reduce damage from emergency accident.

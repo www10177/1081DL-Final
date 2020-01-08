@@ -14,8 +14,8 @@ Spectrogram/ MFCC fig. here
 \subsection{Data Augmentation}
 Due to the lack of training sample, we also perform three easy transformation to extend our dataset. 
 First is \textbf{white noise}, we add white noise which is a random signal having equal intensity at different frequency as the background.
-That make sense because that also lots of noise in real world. Second thing we did is sound shift. Smoothly shift signal in fixed rate. For example, if dog barks at time = 1s, we will shift this event to time = 3s with same amplitude, length\ldots. 
-The last augmentation we did is stretching sound, which modify signal sound length to make sound play a little faster.
+That make sense because that also lots of noise in real world. Second thing we did is \textbf{sound shift}. Smoothly shift signal in fixed rate. For example, if dog barks at time = 1s, we will shift this event to time = 3s with same amplitude, length\ldots. 
+The last augmentation we did is \textbf{stretching sound}, which modify signal sound length to make sound play a little faster.
 \subsection{Model}
 We use convolutional Neural Network(CNN) as our model. Filter is a important component in CNN, which can extract 
 significant part in an image. We adopt many filters with different size and amount, and expect to produce greater 
