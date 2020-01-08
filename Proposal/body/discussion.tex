@@ -1,2 +1,12 @@
 To compared our result, we built two ``naive'' classifier (Random Forest, SVM) to distinguish performance. We converted original waveform into Mel-spectrogram same as Sec.\ref{pre} but with out data augmentation as training data of naive classifier.
-As \ref{fig:compare} showed, it is clear that our result is much better than other two classifier. Even using MFCC got huge improvement. We thought the main contribution might be the CNN, however 2000 sample in original dataset is too small for deep learning. Data augmentation is required and bounded with CNN (in this task). All in all, data augmentation and CNN play important role and improve performance.
+As the following showed, it is clear that our result is much better than other two classifier. Even using MFCC got huge improvement. We thought the main contribution might be the CNN, however 2000 sample in original dataset is too small for deep learning. Data augmentation is required and bounded with CNN (in this task). All in all, data augmentation and CNN play important role and improve performance.
+
+\begin{center}
+\begin{tabular}[t]{lllll}
+\hline 
+    Method & \textbf{Mel-Spectrogram} & \textbf{MFCC} & Random Forest & SVM \\
+\hline
+Accuracy & 0.796 & 0.766 & 0.443 & 0.396\\
+\hline
+\end{tabular}
+\end{center}
