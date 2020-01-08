@@ -1,14 +1,11 @@
-Depend on [4],A considerable amount of research has been made toward modeling and recognition of environmental sounds over
-the past decade.By environmental sounds, we refer to various quotidian sounds, both natural and artificial (i.e. sounds
-one encounters in daily life other than speech and music).
+Depend on \cite{survey}, a considerable amount of research has been made toward modeling and recognition of environmental sounds over the past decade. By environmental sounds, we refer to various quotidian sounds, both natural and artificial, i.e., sounds
+one encounters in daily life other than speech and music.
+
 Many different methods and algorithms are developed for
-identifying noise sources. group of studies focus on the classification techniques such as Hidden Markov Models (HMMs), statistical pattern recognition systems, Artificial Neural Networks (ANNs), fuzzy logic systems, etc; While one group of studies focuses on the extraction of the feature parameters such as Linear Prediction Coding (LPC), Perceptual Linear Predictive (PLP) and Mel-Frequency Cepstral Coefficients (MFCCs), etc,like F. Beritelli et al. [1] proposed a system  based on MFCCs feature and ANNs classifier. L. Ma et al. [2] proposed a system based on MFCCs feature and HMM classifier, and it showed a good classification performance for 11 kinds of environmental noise sources.L. Couvreur et al. [3] presented a classification system based on ANNs coupled with HMMs and PLP feature, and it showed a classification accuracy of 85% for urban environmental noise sources, and [5] show a lot of deep learning methods for environmental sound detection.
-Based on the analysis of the existing sound classification
-systems, we found that most studies showed a good
-performance in experiments conducted in lab environments.
-However, we consider that those systems are difficult to
-implement in real environments, since there exist various
-types of sound sources. In this study, we aimed to real-time
-application of sound classification, especially robust in real environments. We proposed a classification system based on MFCCs and CNN, which is not only considering the
-computational cost of algorithms but also the classification
-performance in real environments
+identifying noise sources. A group of studies focus on the classification techniques such as Hidden Markov Models (HMMs), statistical pattern recognition systems, Artificial Neural Networks (ANNs), fuzzy logic systems, etc; While another group of studies focuses on the extraction of the feature parameters such as Linear Prediction Coding (LPC), Perceptual Linear Predictive (PLP) and Mel-Frequency Cepstral Coefficients (MFCCs)\ldots. 
+
+F. Beritelli et al.\cite{MFCC} proposed a system  based on MFCCs feature and ANNs classifier. L. Ma et al.\cite{Context-Aware} proposed a system based on MFCCs feature and HMM classifier, and it showed a good performance on classification of 11 kinds of environmental noise sources. L. Couvreur et al.\cite{urban} presented a classification system based on ANNs coupled with HMMs and PLP feature, and it showed a classification accuracy of 85\% for urban environmental noise sources, and \cite{DL} show a lot of deep learning methods for environmental sound detection.
+
+Based on the analysis of the existing sound classification systems, we found that most studies showed a good performance in experiments conducted in lab environments.
+However, we consider that those systems are difficult to implement in real environments, since there exists various types of sound sources. 
+In this study, we aimed to real-time application of sound classification, especially robust in real environments. We proposed a classification system based on MFCCs and CNN, which is not only considering the computational cost of algorithms but also the classification performance in real environments.

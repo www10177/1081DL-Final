@@ -1,6 +1,9 @@
 \documentclass[11pt,oneside,a4paper]{article}
 \usepackage{comment}
 \usepackage[utf8]{inputenc}
+\usepackage{cite}
+\usepackage{hyperref}
+
 
 \title{ \LARGE \bf
 Environmental Sound Classification Using Deep Convolutional Nerual Network
@@ -24,8 +27,16 @@ Environmental Sound Classification Using Deep Convolutional Nerual Network
 \section{Methods}
     \input{body/methods}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{comment}
-\section{Reference}
-    \input{body/reference}
-\end{comment}
+\section{Results}
+    \input{body/results}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}
+    \input{body/discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Conclusion}
+    \input{body/conclusion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\bibliography{reference}{}
+\bibliographystyle{acm}
+\nocite{*}
 \end{document}

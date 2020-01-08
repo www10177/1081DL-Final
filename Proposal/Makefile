@@ -8,12 +8,17 @@ endif
 MAIN = Main
 BODY = body
 BODY_FILES = $(wildcard $(BODY)/*.tex)
+REF = reference.bib
 
 
 all : $(MAIN).pdf 
 
-$(MAIN).pdf : $(MAIN).tex $(BODY_FILES)
+$(MAIN).pdf : $(MAIN).tex $(BODY_FILES) $(REF)
 	xelatex $(MAIN)
+	bibtex $(MAIN)
+	xelatex $(MAIN)
+	xelatex $(MAIN)
+
 
 view: 
 	$(OPEN) $(MAIN).pdf
@@ -22,7 +27,7 @@ open: all
 	$(OPEN) $(MAIN).pdf
 
 clean:
-	$(RM) *.log *.aux 
+	$(RM) *.log *.aux *.bbl *.blg
 
 clean-pdf:
 	$(RM) *.pdf
