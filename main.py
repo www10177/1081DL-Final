@@ -57,26 +57,26 @@ def DefineCnn():
     inputs = Input(shape=(x_train.shape[1:]))
 
     x_1 = cba(inputs, filters=32, kernel_size=(1,8), strides=(1,2))
-    x_1 = cba(x_1, filters=32, kernel_size=(8,1), strides=(2,1))
-    x_1 = cba(x_1, filters=64, kernel_size=(1,8), strides=(1,2))
+    # x_1 = cba(x_1, filters=32, kernel_size=(8,1), strides=(2,1))
+    # x_1 = cba(x_1, filters=64, kernel_size=(1,8), strides=(1,2))
     x_1 = cba(x_1, filters=64, kernel_size=(8,1), strides=(2,1))
 
     x_2 = cba(inputs, filters=32, kernel_size=(1,16), strides=(1,2))
-    x_2 = cba(x_2, filters=32, kernel_size=(16,1), strides=(2,1))
-    x_2 = cba(x_2, filters=64, kernel_size=(1,16), strides=(1,2))
+    # x_2 = cba(x_2, filters=32, kernel_size=(16,1), strides=(2,1))
+    # x_2 = cba(x_2, filters=64, kernel_size=(1,16), strides=(1,2))
     x_2 = cba(x_2, filters=64, kernel_size=(16,1), strides=(2,1))
 
     x_3 = cba(inputs, filters=32, kernel_size=(1,32), strides=(1,2))
-    x_3 = cba(x_3, filters=32, kernel_size=(32,1), strides=(2,1))
-    x_3 = cba(x_3, filters=64, kernel_size=(1,32), strides=(1,2))
+    # x_3 = cba(x_3, filters=32, kernel_size=(32,1), strides=(2,1))
+    # x_3 = cba(x_3, filters=64, kernel_size=(1,32), strides=(1,2))
     x_3 = cba(x_3, filters=64, kernel_size=(32,1), strides=(2,1))
 
     x_4 = cba(inputs, filters=32, kernel_size=(1,64), strides=(1,2))
-    x_4 = cba(x_4, filters=32, kernel_size=(64,1), strides=(2,1))
-    x_4 = cba(x_4, filters=64, kernel_size=(1,64), strides=(1,2))
+    # x_4 = cba(x_4, filters=32, kernel_size=(64,1), strides=(2,1))
+    # x_4 = cba(x_4, filters=64, kernel_size=(1,64), strides=(1,2))
     x_4 = cba(x_4, filters=64, kernel_size=(64,1), strides=(2,1))
 
-    x = Add()([x_1, x_2, x_3, x_4])
+    x = Add()([x_1, x_2])
 
     x = cba(x, filters=128, kernel_size=(1,16), strides=(1,2))
     x = cba(x, filters=128, kernel_size=(16,1), strides=(2,1))
